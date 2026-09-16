@@ -10,6 +10,14 @@ basketball_patterns = {
         "prediction_target": "underdog",
         "prediction_quarter": 2,
         "message": "Фаворит выиграл первую четверть. Прогноз: X2 на аутсайдера во второй четверти."
+    },
+    "same_parity_q1_q2_opposite_q3": {
+        "sport": "basketball",
+        "conditions": {
+            "q1_q2_same_parity": True
+        },
+        "prediction": "opposite_parity",
+        "prediction_quarter": 3,
+        "message": "Первая и вторая четверть закончились с одинаковой чётностью/нечётностью. Прогноз: 3-я четверть — {parity}."
     }
 }
-
