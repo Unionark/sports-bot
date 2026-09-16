@@ -3,6 +3,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from pattern_in_it import patterns
 from basketball import basketball_patterns
+from .hockey import hockey_patterns
 
 API_TOKEN = '8595642966:AAG4eVdxKpeISbuQIJzIG0EfweFeNB-V5Xg'
 
