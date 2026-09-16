@@ -1,0 +1,9 @@
+platform: linux/amd64
+runtime: python
+version: "3.11"
+config:
+  build:
+    requirementsPath: requirements.txt
+  run:
+    scriptName: main.py
+    
