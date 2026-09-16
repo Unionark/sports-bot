@@ -4,6 +4,7 @@ from aiogram.filters import Command
 from pattern_in_it import patterns
 from basketball import basketball_patterns
 from .hockey import hockey_patterns
+from patterns.volleyball_pattern import check_volleyball_pattern
 
 API_TOKEN = '8595642966:AAG4eVdxKpeISbuQIJzIG0EfweFeNB-V5Xg'
 
