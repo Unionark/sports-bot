@@ -1,9 +1,10 @@
-platform: linux/amd64
-runtime: python
-version: "3.11"
-config:
-  build:
-    requirementsPath: requirements.txt
-  run:
-    scriptName: main.py
-    
+meta:
+  environment: python
+  toolchain:
+    name: pip
+    version: "3.11"
+build:
+  requirementsPath: requirements.txt
+run:
+  scriptName: main.py
+persistenceMount: /data
