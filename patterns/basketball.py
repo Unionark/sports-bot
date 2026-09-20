@@ -1,3 +1,5 @@
+from .models import AlertSignal
+
 basketball_patterns = {
     "favorite_wins_q1_underdog_x2_q2": {
         "sport": "basketball",
@@ -21,3 +23,20 @@ basketball_patterns = {
         "message": "Первая и вторая четверть закончились с одинаковой чётностью/нечётностью. Прогноз: 3-я четверть — {parity}."
     }
 }
+
+
+def analyze(match_data):
+    signals = []
+    for pattern_name, pattern in basketball_patterns.items():
+        # TODO: здесь будет проверка условий паттерна по match_data
+        # Пока — заглушка: если есть счёт, генерируем сигнал
+        if match_data.score:
+            signals.append(AlertSignal(
+                match_id=match_data.match_id,
+                sport=match_data.sport,
+                event_type=pattern_name,
+                message=pattern["message"],
+                priority=2
+            ))
+    return signals
+    
