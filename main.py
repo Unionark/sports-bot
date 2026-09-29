@@ -4,13 +4,9 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from patterns.models import AlertSignal
 
-# ── Все паттерны на едином формате (analyze → AlertSignal) ──
-enabled_patterns = ['basketball', 'tennis', 'hockey', 'volleyball', 'yellow_cards']
+enabled_patterns = ['basketball', 'tennis', 'hockey', 'volleyball_pattern', 'yellow_cards_strategy']
 
-# ── Flashscore (заглушка — заполни ключ/функцию получения данных) ──
 async def fetch_flashscore_match(match_id):
-    # TODO: реализовать запрос к Flashscore API
-    # Должен возвращать словарь match_data для process_match
     pass
 
 API_TOKEN = '8595642966:AAG4eVdxKpeISbuQIJzIG0EfweFeNB-V5Xg'
@@ -53,7 +49,6 @@ async def cmd_start(message: types.Message):
 
 @dp.message(Command("test"))
 async def cmd_test(message: types.Message):
-    # Теннис
     test_tennis = {
         "match_id": "test_tennis",
         "player1": "Кори Гауфф",
@@ -63,7 +58,6 @@ async def cmd_test(message: types.Message):
         "p1_double_faults_set1": 2,
         "p2_double_faults_set1": 1,
     }
-    # Хоккей
     test_hockey = {
         "match_id": "test_hockey",
         "home": "ЦСКА",
@@ -72,7 +66,6 @@ async def cmd_test(message: types.Message):
         "period_1_away_score": 2,
         "odds": 5.0,
     }
-    # Волейбол
     test_volleyball = {
         "match_id": "test_volleyball",
         "sport": "volleyball",
@@ -82,7 +75,6 @@ async def cmd_test(message: types.Message):
         "away": "Локомотив",
         "sets": {"set_1_total_points": 48},
     }
-    # Футбол (жёлтые карточки)
     test_football = {
         "match_id": "test_football",
         "home": "Зенит",
