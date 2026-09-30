@@ -2,9 +2,9 @@ import asyncio
 import importlib
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
-from patterns.patterns.models import AlertSignal
+from patterns.models import AlertSignal
 
-enabled_patterns = ['basketball', 'tennis', 'hockey', 'volleyball_pattern', 'yellow_cards_strategy']
+enabled_patterns = ['basketball', 'tennis', 'hockey', 'volleyball_pattern', 'yellow_cards_strategy', 'pattern_in_it']
 
 async def fetch_flashscore_match(match_id):
     pass
@@ -19,9 +19,10 @@ def load_patterns():
     analyzers = []
     for module_name in enabled_patterns:
         try:
-            module = importlib.import_module(f'patterns.patterns.{module_name}')
+            module = importlib.import_module(f'patterns.{module_name}')
             if hasattr(module, 'analyze'):
                 analyzers.append(module.analyze)
+            # если у pattern_in_it нет analyze, а есть check_pattern — добавим отдельно при необходимости
         except ImportError as e:
             print(f"[ERROR] Не удалось загрузить {module_name}: {e}")
     return analyzers
